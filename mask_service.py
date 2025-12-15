@@ -15,7 +15,10 @@ def hsv_mask(img):
             bin_mask = cv.inRange(hsv_img, green_min, green_max)
             white_pixels = np.count_nonzero(bin_mask)
             green_percent = np.round((white_pixels / bin_mask.size) * 100)
+            if white_pixels == 0:
+                green_percent = None
             print(green_percent)
             return bin_mask, green_percent
         except cv.Error as e:
+
             print(e)
