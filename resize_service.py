@@ -1,5 +1,4 @@
 import cv2 as cv
-import numpy as np
 
 def resize(img, a, b):
     try:
@@ -11,4 +10,5 @@ def resize(img, a, b):
             new_size = cv.resize(img_read(new_lenght,new_height), interpolation = cv.INTER_AREA)
             return new_size
     except cv.Error as e:
+
         print(e)
